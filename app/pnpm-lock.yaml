@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      openmeteo:
+        specifier: ^1.2.2
+        version: 1.2.2
       react:
         specifier: ^19.1.1
         version: 19.2.0
@@ -164,6 +167,10 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@openmeteo/sdk@1.22.0':
+    resolution: {integrity: sha512-llo/RbkN8wwOF8XrGe42pMbd3qFLUcBYCkmB3nWb8Ozwd+C47Xb0c2o/AsTmyk2WA6hV9tjXDSvyQWTaUFG6WA==}
+    engines: {node: '>=12.0'}
 
   '@oxc-project/runtime@0.92.0':
     resolution: {integrity: sha512-Z7x2dZOmznihvdvCvLKMl+nswtOSVxS2H2ocar+U9xx6iMfTp0VGIrX6a4xB1v80IwOPC7dT1LXIJrY70Xu3Jw==}
@@ -685,6 +692,9 @@ packages:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
     engines: {node: '>=16'}
 
+  flatbuffers@25.9.23:
+    resolution: {integrity: sha512-MI1qs7Lo4Syw0EOzUl0xjs2lsoeqFku44KpngfIduHBYvzm8h2+7K8YMQh1JtVVVrUvhLpNwqVi4DERegUJhPQ==}
+
   flatted@3.3.3:
     resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
 
@@ -942,6 +952,10 @@ packages:
   object-hash@3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
     engines: {node: '>= 6'}
+
+  openmeteo@1.2.2:
+    resolution: {integrity: sha512-n0FeYOFts9Tr/KYajfPvFVaYKd0PDQRuG3xnkgVsyagOI91QkVcSo2+CLIYgN4LlGCCVM5FZ5e+dswSG81PGZA==}
+    engines: {node: '>=12.0'}
 
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
@@ -1390,6 +1404,10 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
+
+  '@openmeteo/sdk@1.22.0':
+    dependencies:
+      flatbuffers: 25.9.23
 
   '@oxc-project/runtime@0.92.0': {}
 
@@ -1876,6 +1894,8 @@ snapshots:
       flatted: 3.3.3
       keyv: 4.5.4
 
+  flatbuffers@25.9.23: {}
+
   flatted@3.3.3: {}
 
   foreground-child@3.3.1:
@@ -2076,6 +2096,11 @@ snapshots:
   object-assign@4.1.1: {}
 
   object-hash@3.0.0: {}
+
+  openmeteo@1.2.2:
+    dependencies:
+      '@openmeteo/sdk': 1.22.0
+      flatbuffers: 25.9.23
 
   optionator@0.9.4:
     dependencies:
