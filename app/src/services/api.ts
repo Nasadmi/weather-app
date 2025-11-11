@@ -70,15 +70,17 @@ export const getWeatherFromActualPos = async (lat: number, long: number) => {
     },
   };
 
-  const weatherData = weatherResponse.hourly.time.map<WeatherData>((t, i) => ({
-    time: t,
-    temperature: weatherResponse.hourly.temperature_2m![i],
-    humidity: weatherResponse.hourly.relative_humidity_2m![i],
-    wind_speed: weatherResponse.hourly.wind_speed_180m![i],
-    apparent_temperature: weatherResponse.hourly.apparent_temperature![i],
-    precipitation_probability:
-      weatherResponse.hourly.precipitation_probability![i],
-  }));
+  const weatherData = weatherResponse.hourly.time
+    .filter((t) => Date.now() > t.getMilliseconds())
+    .map<WeatherData>((t, i) => ({
+      time: t,
+      temperature: weatherResponse.hourly.temperature_2m![i],
+      humidity: weatherResponse.hourly.relative_humidity_2m![i],
+      wind_speed: weatherResponse.hourly.wind_speed_180m![i],
+      apparent_temperature: weatherResponse.hourly.apparent_temperature![i],
+      precipitation_probability:
+        weatherResponse.hourly.precipitation_probability![i],
+    }));
 
   return weatherData;
 };
