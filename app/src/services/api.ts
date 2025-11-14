@@ -15,7 +15,7 @@ export interface WeatherResponse {
     temperature_2m: Float32Array | null;
     relative_humidity_2m: Float32Array | null;
     wind_speed_180m: Float32Array | null;
-    precipitation_probability: Float32Array | null;
+    precipitation: Float32Array | null;
     apparent_temperature: Float32Array | null;
   };
 }
@@ -25,7 +25,7 @@ export interface WeatherData {
   temperature: number;
   humidity: number;
   wind_speed: number;
-  precipitation_probability: number;
+  precipitation: number;
   apparent_temperature: number;
 }
 
@@ -37,7 +37,7 @@ export const getWeatherFromActualPos = async (lat: number, long: number) => {
       "temperature_2m",
       "relative_humidity_2m",
       "wind_speed_180m",
-      "precipitation_probability",
+      "precipitation",
       "apparent_temperature",
     ],
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -65,7 +65,7 @@ export const getWeatherFromActualPos = async (lat: number, long: number) => {
       temperature_2m: hourly.variables(0)!.valuesArray(),
       relative_humidity_2m: hourly.variables(1)!.valuesArray(),
       wind_speed_180m: hourly.variables(2)!.valuesArray(),
-      precipitation_probability: hourly.variables(3)!.valuesArray(),
+      precipitation: hourly.variables(3)!.valuesArray(),
       apparent_temperature: hourly.variables(4)!.valuesArray(),
     },
   };
@@ -78,8 +78,7 @@ export const getWeatherFromActualPos = async (lat: number, long: number) => {
       humidity: weatherResponse.hourly.relative_humidity_2m![i],
       wind_speed: weatherResponse.hourly.wind_speed_180m![i],
       apparent_temperature: weatherResponse.hourly.apparent_temperature![i],
-      precipitation_probability:
-        weatherResponse.hourly.precipitation_probability![i],
+      precipitation: weatherResponse.hourly.precipitation![i],
     }));
 
   return weatherData;
